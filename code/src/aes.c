@@ -53,7 +53,13 @@ static const uint8_t rsbox[256] = {
     0x55, 0x21, 0x0c, 0x7d };
 
 unsigned int numRounds(unsigned int keySize) {
-    return -1;
+
+    switch (keySize) {
+    case 128: return 10;
+    case 192: return 12;
+    case 256: return 14;
+    default: return -1;
+    }
 }
 
 unsigned int numKeyWords(unsigned int keySize) {
